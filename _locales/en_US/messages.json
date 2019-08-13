@@ -1,0 +1,32 @@
+{
+  "manifest_name": {
+    "message": "Perfect Prime"
+  },
+  "manifest_description": {
+    "message": "Automatically play next episode, skip title sequences, and skip trailers on Amazon Prime Video"
+  },
+  "skipTitleSequences": {
+    "message": "Skip Title Sequences"
+  },
+  "autoPlayNext": {
+    "message": "Automatically Play Next Episode"
+  },
+  "alwaysWatchCredits": {
+    "message": "Always Watch Credits"
+  },
+  "skipRecap": {
+    "message": "Skip Recap"
+  },
+  "hideDownvoted": {
+    "message": "Hide Downvoted Content"
+  },
+  "support": {
+    "message": "Support"
+  },
+  "highContrast": {
+    "message": "High Contrast Mode"
+  },
+  "sourceCode": {
+    "message": "Source Code"
+  }
+}

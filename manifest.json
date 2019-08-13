@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_manifest_name__",
+  "description": "__MSG_manifest_description__",
+  "version": "0.0.1",
+  "permissions": [
+    "*://*.amazon.com/*",
+    "*://amazon.com/*",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.amazon.com/gp/video/*",
+        "*://amazon.com/gp/video/*"
+      ],
+      "js": [
+        "js/libs/jquery.js",
+        "js/common.js",
+        "PerfectPrime.js"
+      ]
+    }
+  ],
+  "icons": {
+    "64": "images/icon64.png",
+    "32": "images/icon32.png",
+    "38": "images/icon.png",
+    "128": "images/icon128.png"
+  },
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "js/common.js"
+    ]
+  },
+  "browser_action": {
+    "default_popup": "html/popup.html",
+    "default_title": "__MSG_manifest_name__"
+  },
+  "default_locale": "en",
+  "homepage_url": "https://jonlu.ca",
+  "web_accessible_resources": [
+    "js/*",
+    "data/*"
+  ]
+}
