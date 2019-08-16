@@ -12,11 +12,10 @@ $(() => {
     options = recOptions;
     // Set values on page to those saved
     $("#chkTitleSequence").prop('checked', options.skipTitleSequence);
-    $("#chkPromptStillHere").prop('checked', options.skipStillHere);
+    $("#chkSkipRecaps").prop('checked', options.skipRecap);
     $("#chkPlayNext").prop('checked', options.autoPlayNext);
     $("#chkWatchCredits").prop('checked', options.watchCredits);
-    $("#chkDisAutoPlayInBrowse").prop('checked', options.disableAutoPlayOnBrowse);
-    $("#chkHideDownvoted").prop('checked', options.hideDisliked);
+    $("#chkSkipAds").prop('checked', options.skipAds);
 
     if (options.highContrast) {
       $("#contrast").text("Normal Contrast Mode");
@@ -33,8 +32,6 @@ $(() => {
       changeOption(this);
     });
 
-    reloadSearchLibrary();
-    searchOnTypingListener();
     registerContrastModeHandler();
     setContrastMode();
   });
@@ -76,49 +73,6 @@ function constructResultDiv(elem) {
   return `<div class='entry'><a href="${elem.link}">${elem.genre}</a></div>`;
 }
 
-function reloadSearchLibrary() {
-  $.ajax({
-    method: 'GET',
-    url: chrome.runtime.getURL("data/genres.json"),
-    dataType: 'json',
-    success: function (data, textStatus, jqXHR) {
-      let options = {
-        shouldSort: true,
-        threshold: 0.6,
-        location: 0,
-        distance: 100,
-        maxPatternLength: 32,
-        minMatchCharLength: 1,
-        keys: ["genre"]
-      };
-      fuse = new Fuse(data, options); // Text search library through all genres
-    }
-  });
-}
-
-function searchOnTypingListener() {
-  /*Event listenere for typing in genre*/
-  $('#genreSearch').on('keyup', function () {
-    // Clear previous results
-    $("#results").html("");
-    // If fuse is loaded, do a search
-    if (fuse) {
-      // do search for this.value here
-      let results = fuse.search(this.value);
-      if (results.length) {
-        let max = results.length < 100 ? results.length : 100;
-        let entry = "";
-        for (let i = 0; i < max; i++) {
-          entry += constructResultDiv(results[i]);
-        }
-        $("#results").append(entry);
-      }
-    } else {
-      $("#results").append("<div class='entry'>Genres not loaded! Contact developer if issue persists.</div>");
-    }
-  });
-}
-
 function changeOption(elem) {
   switch (elem.htmlFor) {
     case "chkTitleSequence":
@@ -132,11 +86,8 @@ function changeOption(elem) {
         $('#chkWatchCredits').click();
       }
       break;
-    case "chkPromptStillHere":
-      options.skipStillHere = $('#chkPromptStillHere')[0].checked;
-      break;
-    case "chkDisAutoPlayInBrowse":
-      options.disableAutoPlayOnBrowse = $('#chkDisAutoPlayInBrowse')[0].checked;
+    case "chkSkipRecaps":
+      options.skipRecap = $('#chkSkipRecaps')[0].checked;
       break;
     case "chkWatchCredits":
       options.watchCredits = $('#chkWatchCredits')[0].checked;
@@ -146,8 +97,8 @@ function changeOption(elem) {
         $("#chkPlayNext").click();
       }
       break;
-    case "chkHideDownvoted":
-      options.hideDisliked = $('#chkHideDownvoted')[0].checked;
+    case "chkSkipAds":
+      options.skipAds = $('#chkSkipAds')[0].checked;
       break;
   }
   saveOptions();

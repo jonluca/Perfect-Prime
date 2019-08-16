@@ -14,11 +14,11 @@
   "alwaysWatchCredits": {
     "message": "Always Watch Credits"
   },
-  "skipRecap": {
+  "skipRecaps": {
     "message": "Skip Recap"
   },
-  "hideDownvoted": {
-    "message": "Hide Downvoted Content"
+  "skipAds": {
+    "message": "Skip Ads"
   },
   "support": {
     "message": "Support"

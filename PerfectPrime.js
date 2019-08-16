@@ -1,4 +1,5 @@
 let options = {};
+let monitor = null;
 chrome.runtime.onMessage.addListener(onMessage);
 
 const MAX_TRIES_MONITOR_SKIP = 10;
@@ -21,10 +22,27 @@ $(_ => {
 });
 
 function startMonitoringForSelectors(selectors, numTries) {
-  const monitor = new MutationObserver(_ => {
+  // Maintain a reference to the global monitor and disconnect it
+  // This is needed because single page apps will rearrange their HTML and we won't be able to monitor for the
+  // appropriate changes anymore
+  if (monitor) {
+    monitor.disconnect();
+  }
+
+  monitor = new MutationObserver(_ => {
     let selector = selectors.join(', ');
     for (const elem of document.querySelectorAll(selector)) {
-      elem.click();
+      let shouldClick = true;
+      // Skip Recap and Skip Intro have the same selectors, so we need to differentiate between clicking them here
+      if (elem && elem.textContent) {
+        const text = elem.textContent;
+        if (text === 'Skip Recap' && !options.skipRecap) {
+          shouldClick = false;
+        } else if (text === 'Skip Intro' && !options.skipTitleSequence) {
+          shouldClick = false;
+        }
+      }
+      shouldClick && elem.click();
     }
   });
 

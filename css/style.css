@@ -1,0 +1,278 @@
+:root {
+  --main-bg-color: #37475A;
+  --main-fg-color: #FEBD69;
+  --main-fg-off-color: #b8894d;
+}
+
+body {
+  width: 500px;
+  background-color: var(--main-bg-color);
+  color: var(--main-fg-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Open Sans', sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  color: var(--main-fg-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--main-fg-off-color);
+}
+
+input[type="range"] {
+  vertical-align: top;
+  border-radius: 4px 0 0 4px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: var(--main-fg-color);
+}
+
+.footer {
+  font-size: 75%;
+  padding-bottom: 5px;
+  display: inline;
+}
+
+.checkBackground {
+  background-color: var(--main-bg-color) !important;;
+}
+
+#contrast {
+  cursor: pointer;
+}
+
+.high-contrast {
+  background-color: white !important;
+  color: black;
+}
+
+.high-contrast a {
+  color: black !important;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.625em;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  margin-bottom: 13px;
+  line-height: 1.625em;
+}
+
+ul, ol {
+  margin-bottom: 0.273em;
+}
+
+ul {
+  list-style: none outside;
+}
+
+li {
+  padding-bottom: 0.273em;
+}
+
+.row {
+  width: 100%;
+  max-width: 980px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.row {
+  *zoom: 1;
+}
+
+.row:before, .row:after {
+  content: "";
+  display: table;
+}
+
+.row:after {
+  clear: both;
+}
+
+form label {
+  display: block;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.625em;
+  cursor: pointer;
+  margin-bottom: 9px;
+}
+
+form ul, form ul li {
+  margin-left: 0;
+  list-style-type: none;
+}
+
+form fieldset {
+  border-style: solid;
+  border-width: 0.0625em;
+  padding-right: 1.5625em;
+  padding-left: 1.5625em;
+}
+
+form fieldset legend {
+  padding: 5px 10px;
+}
+
+.field {
+  position: relative;
+  max-width: 100%;
+  vertical-align: middle;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.field input, .field input[type="*"], .field textarea {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  resize: none;
+  -webkit-appearance: none;
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 16px;
+  font-size: 1rem;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+
+.js .field .radio.checked i, .js .field .checkbox.checked i {
+  position: absolute;
+  top: -1px;
+  left: -8px;
+  line-height: 16px;
+}
+
+.js .field .radio span, .js .field .checkbox span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 2px;
+  border: solid 1px #ccc;
+  background: #fefefe;
+}
+
+.js .field .radio input[type="radio"], .js .field .radio input[type="checkbox"], .js .field .checkbox input[type="radio"], .js .field .checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.js .field .radio span {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+}
+
+i[class^="icon-"], i[class*=" icon-"] {
+  display: inline-block;
+  position: static;
+  min-width: 20px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.icon-check.icon-left a:before, .icon-check.icon-right a:after, i.icon-check:before {
+  content: "\2713";
+  height: inherit;
+}
+
+.field input, .field .input, .field textarea, .field .textarea, .field .radio span, .field .checkbox span, .field .picker {
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.js .field .radio, .js .field .checkbox {
+  position: relative;
+}
+
+.js .field .radio span, .js .field .checkbox span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 2px;
+  border: solid 1px #ccc;
+  background: #fefefe;
+}
+
+.js .field .radio input[type="radio"], .js .field .radio input[type="checkbox"], .js .field .checkbox input[type="radio"], .js .field .checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.js .field .checkbox span {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.copy {
+  display: block;
+  line-height: 1;
+}
