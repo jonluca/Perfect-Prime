@@ -40,7 +40,6 @@
   "default_locale": "en",
   "homepage_url": "https://jonlu.ca",
   "web_accessible_resources": [
-    "js/*",
-    "data/*"
+    "js/*"
   ]
 }
