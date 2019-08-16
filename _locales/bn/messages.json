@@ -1,1 +1,32 @@
-{"manifest_name": {"message": "পারফেক্ট প্রাইম"}, "manifest_description": {"message": "স্বয়ংক্রিয়ভাবে পরবর্তী পর্ব খেলুন, শিরোনামের ক্রমগুলি এড়িয়ে চলুন এবং অ্যামাজন প্রাইম ভিডিওতে ট্রেলারগুলি এড়িয়ে যান"}, "skipTitleSequences": {"message": "শিরোনাম সিকোয়েন্সগুলি এড়িয়ে যান"}, "autoPlayNext": {"message": "স্বয়ংক্রিয়ভাবে পরের পর্ব খেলুন"}, "alwaysWatchCredits": {"message": "সর্বদা ক্রেডিট দেখুন"}, "skipRecaps": {"message": "ছাড়ুন"}, "skipAds": {"message": "বিজ্ঞাপন ছেড়ে যান"}, "support": {"message": "সমর্থন"}, "highContrast": {"message": "উচ্চ বিপরীতে মোড"}, "sourceCode": {"message": "সোর্স কোড"}}
+{
+  "manifest_name": {
+    "message": "পারফেক্ট প্রাইম"
+  },
+  "manifest_description": {
+    "message": "স্বয়ংক্রিয়ভাবে পরবর্তী পর্ব খেলুন, শিরোনামের ক্রমগুলি এড়িয়ে চলুন এবং অ্যামাজন প্রাইম ভিডিওতে ট্রেলারগুলি এড়িয়ে যান"
+  },
+  "skipTitleSequences": {
+    "message": "শিরোনাম সিকোয়েন্সগুলি এড়িয়ে যান"
+  },
+  "autoPlayNext": {
+    "message": "স্বয়ংক্রিয়ভাবে পরের পর্ব খেলুন"
+  },
+  "alwaysWatchCredits": {
+    "message": "সর্বদা ক্রেডিট দেখুন"
+  },
+  "skipRecaps": {
+    "message": "ছাড়ুন"
+  },
+  "skipAds": {
+    "message": "বিজ্ঞাপন ছেড়ে যান"
+  },
+  "support": {
+    "message": "সমর্থন"
+  },
+  "highContrast": {
+    "message": "উচ্চ বিপরীতে মোড"
+  },
+  "sourceCode": {
+    "message": "সোর্স কোড"
+  }
+}

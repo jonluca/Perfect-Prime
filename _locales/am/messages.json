@@ -1,1 +1,32 @@
-{"manifest_name": {"message": "ፍጹም ጠቅላይ ሚኒስትር ፡፡"}, "manifest_description": {"message": "ቀጣዩን የትዕይንት ክፍል በራስ-ሰር ይጫወቱ ፣ የርዕስ ቅደም ተከተሎችን ይዝለሉ ፣ እና በአማዞን ፕሪሚየር ቪዲዮ ማጫዎቻዎችን ይዝለሉ ፡፡"}, "skipTitleSequences": {"message": "የርዕስ ቅደም ተከተሎችን ዝለል።"}, "autoPlayNext": {"message": "ቀጣይ ትዕይንት ክፍል በራስ-ሰር አጫውት።"}, "alwaysWatchCredits": {"message": "ሁልጊዜ ዱቤዎችን ይመልከቱ።"}, "skipRecaps": {"message": "ድጋሚ ዝለል"}, "skipAds": {"message": "ማስታወቂያዎችን ዝለል"}, "support": {"message": "ድጋፍ።"}, "highContrast": {"message": "ከፍተኛ የንፅፅር ሁኔታ።"}, "sourceCode": {"message": "ምንጭ ኮድ"}}
+{
+  "manifest_name": {
+    "message": "ፍጹም ጠቅላይ ሚኒስትር ፡፡"
+  },
+  "manifest_description": {
+    "message": "ቀጣዩን የትዕይንት ክፍል በራስ-ሰር ይጫወቱ ፣ የርዕስ ቅደም ተከተሎችን ይዝለሉ ፣ እና በአማዞን ፕሪሚየር ቪዲዮ ማጫዎቻዎችን ይዝለሉ ፡፡"
+  },
+  "skipTitleSequences": {
+    "message": "የርዕስ ቅደም ተከተሎችን ዝለል።"
+  },
+  "autoPlayNext": {
+    "message": "ቀጣይ ትዕይንት ክፍል በራስ-ሰር አጫውት።"
+  },
+  "alwaysWatchCredits": {
+    "message": "ሁልጊዜ ዱቤዎችን ይመልከቱ።"
+  },
+  "skipRecaps": {
+    "message": "ድጋሚ ዝለል"
+  },
+  "skipAds": {
+    "message": "ማስታወቂያዎችን ዝለል"
+  },
+  "support": {
+    "message": "ድጋፍ።"
+  },
+  "highContrast": {
+    "message": "ከፍተኛ የንፅፅር ሁኔታ።"
+  },
+  "sourceCode": {
+    "message": "ምንጭ ኮድ"
+  }
+}
