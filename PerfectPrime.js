@@ -2,8 +2,6 @@ let options = {};
 let monitor = null;
 chrome.runtime.onMessage.addListener(onMessage);
 
-const MAX_TRIES_MONITOR_SKIP = 10;
-
 function onMessage(message, sender, sendResponse) {
   if (message.action === 'optionsChanged') {
     options = message.options;
@@ -18,10 +16,15 @@ $(_ => {
       startHelper();
       console.log('hashchange');
     };
+
+    // Reset the mutation observer every 30 minutes in case the document changes
+    setInterval(_ => {
+      startHelper();
+    }, 1000 * 60 * 30);
   });
 });
 
-function startMonitoringForSelectors(selectors, numTries) {
+function startMonitoringForSelectors(selectors) {
   // Maintain a reference to the global monitor and disconnect it
   // This is needed because single page apps will rearrange their HTML and we won't be able to monitor for the
   // appropriate changes anymore
@@ -29,7 +32,7 @@ function startMonitoringForSelectors(selectors, numTries) {
     monitor.disconnect();
   }
 
-  monitor = new MutationObserver(_ => {
+  const observerFunction = debounce(_ => {
     let selector = selectors.join(', ');
     for (const elem of document.querySelectorAll(selector)) {
       let shouldClick = true;
@@ -44,25 +47,17 @@ function startMonitoringForSelectors(selectors, numTries) {
       }
       shouldClick && elem.click();
     }
+  }, 100);
+
+  monitor = new MutationObserver(observerFunction);
+
+  /*Start monitoring at html body*/
+  monitor.observe(document.body, {
+    attributes: false, // Don't monitor attribute changes
+    childList: true, // Monitor direct child elements (anything observable) changes
+    subtree: true // Monitor all descendants
   });
 
-  let domEntry = document.getElementById("dv-web-player");
-  if (domEntry) {
-    /*Start monitoring at react's entry point*/
-    monitor.observe(domEntry, {
-      attributes: false, // Don't monitor attribute changes
-      childList: true, // Monitor direct child elements (anything observable) changes
-      subtree: true // Monitor all descendants
-    });
-  } else {
-    if (numTries > MAX_TRIES_MONITOR_SKIP) {
-      return;
-    }
-    numTries++;
-    setTimeout(_ => {
-      startMonitoringForSelectors(selectors, numTries);
-    }, 100 * numTries);
-  }
 }
 
 function startHelper() {
@@ -90,7 +85,7 @@ function startHelper() {
     watchCredits(selectors);
   }
 
-  startMonitoringForSelectors(selectors, 0);
+  startMonitoringForSelectors(selectors);
 }
 
 function enableAutoPlayNext(selectors) {
@@ -117,3 +112,35 @@ function watchCredits(selectors) {
   /*Skip title sequence*/
   selectors.push('.nextUpHideText');
 }
+
+// Credit David Walsh (https://davidwalsh.name/javascript-debounce-function)
+
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+  let timeout;
+
+  return function executedFunction() {
+    const context = this;
+    const args = arguments;
+
+    const later = function () {
+      timeout = null;
+      if (!immediate) {
+        func.apply(context, args);
+      }
+    };
+
+    const callNow = immediate && !timeout;
+
+    clearTimeout(timeout);
+
+    timeout = setTimeout(later, wait);
+
+    if (callNow) {
+      func.apply(context, args);
+    }
+  };
+};

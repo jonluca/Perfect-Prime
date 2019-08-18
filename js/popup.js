@@ -2,6 +2,9 @@ let options;
 let fuse;
 
 $(() => {
+  const manifestData = chrome.runtime.getManifest();
+  $("#version").text(manifestData.version);
+
   $('body').on('click', 'a', function () {
     if (this && $(this).attr('href')) {
       chrome.tabs.create({url: $(this).attr('href')});
