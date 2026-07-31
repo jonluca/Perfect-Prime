@@ -1,30 +1,7 @@
 # Perfect Prime
 
-[PerfectPrime](https://chrome.google.com/webstore/detail/agkpclldfjffanjojbkhkakaliiohebe/) is a chrome extension that improves the Prime Video experience for power users. Its features include:
+Manifest V3 migration of Chrome Web Store item `agkpclldfjffanjojbkhkakaliiohebe`.
 
-* Automatically skip intros
-* Automatically skip ads
-* Automatically skip recaps
-* Automatically play the next episode OR always watch the credits!
+The persistent MV2 background page, remote popup font, and bundled jQuery/Modernizr/Gumby dependencies were removed. The new WXT project preserves the locale catalog, adds current Prime Video domains, and builds Chrome, Edge, Firefox, and Safari MV3 packages.
 
-## Options
-
-PerfectPrime allows you to customize it's functionality with an options menu, which can be accessed by clicking the logo in the top bar.
-
-![options](https://i.imgur.com/Y4UPSfb.png)
-
-## Live link
-
-[Link to Chrome Webstore](https://chrome.google.com/webstore/detail/agkpclldfjffanjojbkhkakaliiohebe)
-
-
-## Language
-
-Note: I used Google Translate for all the translations. If there is anything wrong with them, please file an issue here.
-
-
-## Libraries & Credits
-
-* [gumby](https://gumbyframework.com/docs/javascript/) - Options page
-* [modernizr](https://modernizr.com/) - Options page
-* [jQuery](https://jquery.com/)
+Run `npm install`, then `npm run build`.
